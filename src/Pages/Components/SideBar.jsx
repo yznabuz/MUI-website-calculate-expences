@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import {
+  IconButton,
   ListItem,
   ListItemButton,
   ListItemIcon,
@@ -16,6 +17,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
 import LogoutSharpIcon from "@mui/icons-material/LogoutSharp";
 import { Link } from "react-router-dom";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 const drawerWidth = 240;
 
@@ -34,7 +37,11 @@ export default function PermanentDrawerLeft() {
         variant="permanent"
         anchor="left"
       >
-        <Toolbar />
+        <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
+          <IconButton>
+            <Brightness7Icon />
+          </IconButton>
+        </Toolbar>
         <Divider />
         <List>
           <Link className="navBtn" to="/">
