@@ -5,7 +5,6 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import {
-  Button,
   ListItem,
   ListItemButton,
   ListItemIcon,
@@ -16,6 +15,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
 import LogoutSharpIcon from "@mui/icons-material/LogoutSharp";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -36,8 +36,8 @@ export default function PermanentDrawerLeft() {
       >
         <Toolbar />
         <Divider />
-        <nav aria-label="main mailbox folders">
-          <List>
+        <List>
+          <Link className="navBtn" to="/">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -46,6 +46,8 @@ export default function PermanentDrawerLeft() {
                 <ListItemText primary="Home" />
               </ListItemButton>
             </ListItem>
+          </Link>
+          <Link className="navBtn" to="/create">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -54,6 +56,8 @@ export default function PermanentDrawerLeft() {
                 <ListItemText primary="Create" />
               </ListItemButton>
             </ListItem>
+          </Link>
+          <Link className="navBtn" to="/profile">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -62,6 +66,8 @@ export default function PermanentDrawerLeft() {
                 <ListItemText primary="Profile" />
               </ListItemButton>
             </ListItem>
+          </Link>
+          <Link className="navBtn" to="/setting">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -70,6 +76,8 @@ export default function PermanentDrawerLeft() {
                 <ListItemText primary="Setting" />
               </ListItemButton>
             </ListItem>
+          </Link>
+          <Link className="navBtn" to="/logout">
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -78,8 +86,8 @@ export default function PermanentDrawerLeft() {
                 <ListItemText primary="Log Out" />
               </ListItemButton>
             </ListItem>
-          </List>
-        </nav>
+          </Link>
+        </List>
       </Drawer>
     </Box>
   );
