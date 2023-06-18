@@ -23,13 +23,14 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 const drawerWidth = 240;
 
-export default function SideBar({ setMode }) {
+export default function SideBar({ setMode, drw, drwHide, setDrw }) {
   const theme = useTheme();
   const currentLocation = useLocation();
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
         sx={{
+          display: { xs: drw, sm: "block" },
           width: drawerWidth,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
@@ -37,8 +38,12 @@ export default function SideBar({ setMode }) {
             boxSizing: "border-box",
           },
         }}
-        variant="permanent"
+        variant={drwHide}
         anchor="left"
+        open={true}
+        onClose={() => {
+          setDrw("none");
+        }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
           <IconButton

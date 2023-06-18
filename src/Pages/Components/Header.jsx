@@ -9,9 +9,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 
-export default function Header() {
+export default function Header({ setDrw, setDrwHide }) {
   return (
-    <Box sx={{ marginLeft: "240px", flexGrow: 1 }}>
+    <Box sx={{ marginLeft: { sm: "240px" }, flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -20,8 +20,12 @@ export default function Header() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={() => {
+              setDrw("block");
+              setDrwHide("temporary");
+            }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ display: { sm: "none" } }} />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             News

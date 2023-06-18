@@ -41,12 +41,20 @@ export default function Root() {
     },
   });
 
+  const [drw, setDrw] = useState("none");
+  const [drwHide, setDrwHide] = useState("permanent");
+
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <Header />
-        <SideBar setMode={setMode} />
+        <Header setDrw={setDrw} setDrwHide={setDrwHide} />
+        <SideBar
+          drw={drw}
+          setMode={setMode}
+          drwHide={drwHide}
+          setDrw={setDrw}
+        />
         <Box sx={{ ml: "240px", display: "flex", justifyContent: "center" }}>
           <Outlet />
         </Box>

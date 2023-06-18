@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const Home = () => {
   return (
-    <Box sx={{ mt: "100px" }}>
+    <Box sx={{ mt: "100px", mr: { xs :"240px", sm: "0px" } }}>
       <Paper
         sx={{
           position: "relative",

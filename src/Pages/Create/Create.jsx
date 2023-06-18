@@ -18,7 +18,7 @@ const Create = () => {
         fullWidth={true}
         label="Transaction Name"
         id="outlined-start-adornment"
-        sx={{ ml: "22px", mb: "30px", display: "block" }}
+        sx={{ mb: "30px", display: "block" }}
         InputProps={{
           startAdornment: <InputAdornment position="start">👉</InputAdornment>,
         }}
@@ -28,7 +28,7 @@ const Create = () => {
         fullWidth={true}
         label="Transaction Amount"
         id="outlined-start-adornment"
-        sx={{ ml: "22px", display: "block" }}
+        sx={{ display: "block" }}
         InputProps={{
           startAdornment: <InputAdornment position="start">$</InputAdornment>,
         }}
@@ -37,7 +37,6 @@ const Create = () => {
       <Button
         fullWidth={true}
         sx={{
-          marginLeft: "22px",
           marginTop: "50px",
           backgroundColor: theme.palette.btnC.main,
           "&:hover": {
