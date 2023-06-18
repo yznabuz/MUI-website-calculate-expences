@@ -40,6 +40,9 @@ const Create = () => {
           marginLeft: "22px",
           marginTop: "50px",
           backgroundColor: theme.palette.btnC.main,
+          "&:hover": {
+            backgroundColor: theme.palette.btnC.hover,
+          },
         }}
         variant="contained"
         endIcon={<SendIcon />}

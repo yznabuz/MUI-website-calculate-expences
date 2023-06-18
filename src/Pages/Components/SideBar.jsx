@@ -16,7 +16,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import PersonIcon from "@mui/icons-material/Person";
 import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
 import LogoutSharpIcon from "@mui/icons-material/LogoutSharp";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useTheme } from "@emotion/react";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -25,6 +25,7 @@ const drawerWidth = 240;
 
 export default function SideBar({ setMode }) {
   const theme = useTheme();
+  const currentLocation = useLocation();
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
@@ -61,7 +62,16 @@ export default function SideBar({ setMode }) {
         <Divider />
         <List>
           <Link className="navBtn" to="/">
-            <ListItem disablePadding>
+            <ListItem
+              sx={{
+                backgroundColor:
+                  currentLocation.pathname === "/"
+                    ? theme.palette.bg.main
+                    : null,
+                borderRadius: "10px",
+              }}
+              disablePadding
+            >
               <ListItemButton>
                 <ListItemIcon>
                   <HomeIcon />
@@ -71,7 +81,16 @@ export default function SideBar({ setMode }) {
             </ListItem>
           </Link>
           <Link className="navBtn" to="/create">
-            <ListItem disablePadding>
+            <ListItem
+              sx={{
+                backgroundColor:
+                  currentLocation.pathname === "/create"
+                    ? theme.palette.bg.main
+                    : null,
+                borderRadius: "10px",
+              }}
+              disablePadding
+            >
               <ListItemButton>
                 <ListItemIcon>
                   <CreateIcon />
