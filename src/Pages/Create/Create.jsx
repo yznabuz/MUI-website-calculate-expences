@@ -1,10 +1,17 @@
-import { Box, Button, InputAdornment, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  InputAdornment,
+  TextField,
+  useTheme,
+} from "@mui/material";
 import "./Create.css";
 import SendIcon from "@mui/icons-material/Send";
 
 import React from "react";
 
 const Create = () => {
+  const theme = useTheme();
   return (
     <Box sx={{ mt: "100px", width: "360px" }}>
       <TextField
@@ -28,8 +35,12 @@ const Create = () => {
         variant="filled"
       />
       <Button
-      fullWidth={true}
-        sx={{ marginLeft: "22px", marginTop: "50px" }}
+        fullWidth={true}
+        sx={{
+          marginLeft: "22px",
+          marginTop: "50px",
+          backgroundColor: theme.palette.btnC.main,
+        }}
         variant="contained"
         endIcon={<SendIcon />}
       >

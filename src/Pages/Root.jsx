@@ -16,7 +16,20 @@ export default function Root() {
 
   const darkTheme = createTheme({
     palette: {
-      mode: mode,
+      mode,
+      ...(mode === "light"
+        ? {
+            // palette values for light mode
+            btnC: {
+              main: "#1565c0",
+            },
+          }
+        : {
+            // palette values for dark mode
+            btnC: {
+              main: "orange",
+            },
+          }),
     },
   });
 
