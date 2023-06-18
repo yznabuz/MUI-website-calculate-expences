@@ -43,6 +43,10 @@ export default function SideBar({ setMode }) {
           <IconButton
             sx={{ ml: 1 }}
             onClick={() => {
+              localStorage.setItem(
+                "currentMode",
+                theme.palette.mode === "light" ? "dark" : "light"
+              );
               setMode(theme.palette.mode === "light" ? "dark" : "light");
             }}
             color="inherit"

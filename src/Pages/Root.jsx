@@ -6,7 +6,13 @@ import { ThemeProvider } from "@emotion/react";
 import { useState } from "react";
 
 export default function Root() {
-  const [mode, setMode] = useState("light");
+  const [mode, setMode] = useState(
+    localStorage.getItem("currentMode") === null
+      ? "light"
+      : localStorage.getItem("currentMode") === "light"
+      ? "light"
+      : "dark"
+  );
 
   const darkTheme = createTheme({
     palette: {
