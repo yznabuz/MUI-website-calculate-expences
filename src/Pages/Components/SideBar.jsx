@@ -18,11 +18,13 @@ import SettingsSharpIcon from "@mui/icons-material/SettingsSharp";
 import LogoutSharpIcon from "@mui/icons-material/LogoutSharp";
 import { Link } from "react-router-dom";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { useTheme } from "@emotion/react";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft() {
+export default function SideBar({ setMode }) {
+  const theme = useTheme();
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
@@ -38,8 +40,18 @@ export default function PermanentDrawerLeft() {
         anchor="left"
       >
         <Toolbar sx={{ display: "flex", justifyContent: "center" }}>
-          <IconButton>
-            <Brightness7Icon />
+          <IconButton
+            sx={{ ml: 1 }}
+            onClick={() => {
+              setMode(theme.palette.mode === "light" ? "dark" : "light");
+            }}
+            color="inherit"
+          >
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon sx={{ color: "orange" }} />
+            ) : (
+              <Brightness4Icon />
+            )}
           </IconButton>
         </Toolbar>
         <Divider />
