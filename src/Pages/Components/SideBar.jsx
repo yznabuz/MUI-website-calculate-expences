@@ -2,7 +2,6 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import {
   IconButton,
@@ -26,6 +25,15 @@ const drawerWidth = 240;
 export default function SideBar({ setMode, drw, drwHide, hideDrawe }) {
   const theme = useTheme();
   const currentLocation = useLocation();
+
+  const myList = [
+    { name: "Home", icon: <HomeIcon />, path: "/" },
+    { name: "Create", icon: <CreateIcon />, path: "/create" },
+    { name: "Profile", icon: <PersonIcon />, path: "/profile" },
+    { name: "Setting", icon: <SettingsSharpIcon />, path: "/setting" },
+    { name: "Log Out", icon: <LogoutSharpIcon />, path: "/logout" },
+  ];
+
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
@@ -65,76 +73,28 @@ export default function SideBar({ setMode, drw, drwHide, hideDrawe }) {
           </IconButton>
         </Toolbar>
         <Divider />
-        <List>
-          <Link className="navBtn" to="/">
-            <ListItem
-              sx={{
-                backgroundColor:
-                  currentLocation.pathname === "/"
-                    ? theme.palette.bg.main
-                    : null,
-                borderRadius: "10px",
-              }}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  <HomeIcon />
-                </ListItemIcon>
-                <ListItemText primary="Home" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link className="navBtn" to="/create">
-            <ListItem
-              sx={{
-                backgroundColor:
-                  currentLocation.pathname === "/create"
-                    ? theme.palette.bg.main
-                    : null,
-                borderRadius: "10px",
-              }}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  <CreateIcon />
-                </ListItemIcon>
-                <ListItemText primary="Create" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link className="navBtn" to="/profile">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <PersonIcon />
-                </ListItemIcon>
-                <ListItemText primary="Profile" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link className="navBtn" to="/setting">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <SettingsSharpIcon />
-                </ListItemIcon>
-                <ListItemText primary="Setting" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link className="navBtn" to="/logout">
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <LogoutSharpIcon />
-                </ListItemIcon>
-                <ListItemText primary="Log Out" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        </List>
+
+        {myList.map((item) => {
+          return (
+            <Link className="navBtn" to={item.path}>
+              <ListItem
+                sx={{
+                  backgroundColor:
+                    currentLocation.pathname === item.path
+                      ? theme.palette.bg.main
+                      : null,
+                  borderRadius: "10px",
+                }}
+                disablePadding
+              >
+                <ListItemButton>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.name} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          );
+        })}
       </Drawer>
     </Box>
   );
