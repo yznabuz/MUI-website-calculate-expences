@@ -76,7 +76,7 @@ export default function SideBar({ setMode, drw, drwHide, hideDrawe }) {
 
         {myList.map((item) => {
           return (
-            <Link className="navBtn" to={item.path}>
+            <Link key={item.name} className="navBtn" to={item.path}>
               <ListItem
                 sx={{
                   backgroundColor:
