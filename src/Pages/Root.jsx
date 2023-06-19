@@ -44,16 +44,26 @@ export default function Root() {
   const [drw, setDrw] = useState("none");
   const [drwHide, setDrwHide] = useState("permanent");
 
+  function openDrawe() {
+    setDrw("block");
+    setDrwHide("temporary");
+  }
+
+  function hideDrawe() {
+    setDrw("none");
+    setDrwHide("permanent");
+  }
+
   return (
     <div>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <Header setDrw={setDrw} setDrwHide={setDrwHide} />
+        <Header openDrawe={openDrawe} />
         <SideBar
           drw={drw}
           setMode={setMode}
           drwHide={drwHide}
-          setDrw={setDrw}
+          hideDrawe={hideDrawe}
         />
         <Box sx={{ ml: "240px", display: "flex", justifyContent: "center" }}>
           <Outlet />

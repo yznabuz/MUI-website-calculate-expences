@@ -23,7 +23,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 
 const drawerWidth = 240;
 
-export default function SideBar({ setMode, drw, drwHide, setDrw }) {
+export default function SideBar({ setMode, drw, drwHide, hideDrawe }) {
   const theme = useTheme();
   const currentLocation = useLocation();
   return (
@@ -42,7 +42,7 @@ export default function SideBar({ setMode, drw, drwHide, setDrw }) {
         anchor="left"
         open={true}
         onClose={() => {
-          setDrw("none");
+          hideDrawe();
         }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "center" }}>

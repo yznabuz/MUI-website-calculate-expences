@@ -9,7 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 
-export default function Header({ setDrw, setDrwHide }) {
+export default function Header({ openDrawe }) {
   return (
     <Box sx={{ marginLeft: { sm: "240px" }, flexGrow: 1 }}>
       <AppBar position="static">
@@ -21,8 +21,7 @@ export default function Header({ setDrw, setDrwHide }) {
             aria-label="menu"
             sx={{ mr: 2 }}
             onClick={() => {
-              setDrw("block");
-              setDrwHide("temporary");
+              openDrawe();
             }}
           >
             <MenuIcon sx={{ display: { sm: "none" } }} />
