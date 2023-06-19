@@ -11,12 +11,14 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setMydata(data));
   }, []);
-
-  console.log(mydata);
+  const result = mydata.reduce(
+    (total, currentValue) => (total = total + currentValue.price),
+    0
+  );
 
   return (
     <Box sx={{ mt: "100px", mr: { xs: "240px", sm: "0px" } }}>
-      {mydata.map((item, index) => {
+      {mydata.map((item) => {
         return (
           <Paper
             key={item.id}
@@ -53,8 +55,17 @@ const Home = () => {
           </Paper>
         );
       })}
-      <Typography variant="body1" color="initial">
-        Your total price ={" "}
+      <Typography
+        sx={{
+          mt: "30px",
+          display: "flex",
+          justifyContent: "center",
+          fontWeight: "bold",
+          fontSize: "18px",
+        }}
+        variant="body1"
+      >
+        Your total price 👉 ${result}
       </Typography>
     </Box>
   );

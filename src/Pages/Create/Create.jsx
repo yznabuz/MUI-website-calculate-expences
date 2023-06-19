@@ -59,7 +59,7 @@ const Create = () => {
         fullWidth={true}
         onClick={sendData}
         sx={{
-          marginTop: "50px",
+          mt: "90px",
           backgroundColor: theme.palette.btnC.main,
           "&:hover": {
             backgroundColor: theme.palette.btnC.hover,
