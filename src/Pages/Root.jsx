@@ -4,7 +4,7 @@ import { Box, CssBaseline, createTheme } from "@mui/material";
 // import { ThemeProvider } from "@emotion/react";
 import { useMemo, useState } from "react";
 import getDesignTokens from "../Style/Theme";
-import Footer from "./Components/SideBar";
+import Footer from "./Components/Footer";
 
 export default function Root() {
   const [mode, setMode] = useState(
