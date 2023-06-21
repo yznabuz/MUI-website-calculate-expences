@@ -22,17 +22,24 @@ const Home = () => {
           flexWrap: "wrap",
         }}
       >
-        <Card sx={{ width: "100%", m: "16px" }}>
+        <Card elevation={0} sx={{ width: "100%", m: "16px" }}>
           <CardMedia
             sx={{ height: 200 }}
             image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
             title="green iguana"
           />
         </Card>
-        <Container sx={{ maxWidth: "100%",display: "flex", justifyContent: "space-between" }}>
+        <Container
+          sx={{
+            maxWidth: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography>Recommnded</Typography>
-          <Link to='/' style={{color:"black"}}>
-          <Typography> See All</Typography></Link>
+          <Link to="/" style={{ color: "black" }}>
+            <Typography> See All</Typography>
+          </Link>
         </Container>
         <Container
           sx={{
@@ -44,7 +51,7 @@ const Home = () => {
             },
           }}
         >
-          <Card sx={{ width: 200 }}>
+          <Card elevation={0} sx={{ width: 200, border: "1px #e9e9e9 solid" }}>
             <CardMedia
               sx={{ height: 160 }}
               image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
@@ -57,7 +64,7 @@ const Home = () => {
               <FavoriteBorderIcon />{" "}
             </IconButton>
           </Card>
-          <Card sx={{ width: 200 }}>
+          <Card elevation={0} sx={{ width: 200, border: "1px #e9e9e9 solid" }}>
             <CardMedia
               sx={{ height: 160 }}
               image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
