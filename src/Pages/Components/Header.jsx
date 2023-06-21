@@ -6,10 +6,11 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import LogoDevIcon from "@mui/icons-material/LogoDev";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -58,24 +59,54 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography
             variant="h6"
             noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
           >
-            YZN
+            <LogoDevIcon />
           </Typography>
-          <Search sx={{ mr: "18px" }}>
+
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Link to={"/"}>
+              <Button
+                sx={{ textDecoration: "none", color: "white" }}
+                className="btn"
+                color="inherit"
+              >
+                Home
+              </Button>
+            </Link>
+            <Link to={"/"}>
+              <Button
+                sx={{ textDecoration: "none", color: "white" }}
+                className="btn"
+                color="inherit"
+              >
+                Products
+              </Button>
+            </Link>
+            <Link to={"/"}>
+              <Button
+                sx={{ textDecoration: "none", color: "white" }}
+                className="btn"
+                color="inherit"
+              >
+                Recommended
+              </Button>
+            </Link>
+          </Box>
+          <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -84,6 +115,9 @@ export default function Header() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <IconButton sx={{ mr: "16px", color: "inherit" }}>
+            <ShoppingCartIcon />
+          </IconButton>
           <Link to={"/Login"}>
             <Button
               sx={{ textDecoration: "none", color: "white" }}

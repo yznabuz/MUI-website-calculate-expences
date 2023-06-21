@@ -1,4 +1,5 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import LogoDevIcon from "@mui/icons-material/LogoDev";
 
 export default function Footer() {
   return (
@@ -6,21 +7,16 @@ export default function Footer() {
       <Box
         sx={{
           width: "100%",
-          height: "auto",
           position: "absolute",
-          bottom: "0",
+          height: "75px",
+          backgroundColor: "#f0f0f0",
+          display: "flex",
+          justifyContent: "space-between",
+          mt: "250px",
         }}
       >
-        <Container maxWidth="lg">
-          <Grid container direction="column" alignItems="center">
-            <Grid item xs={12}></Grid>
-            <Grid item xs={12}>
-              <Typography color="textSecondary" variant="subtitle1">
-                {`${new Date().getFullYear()} | React | Material UI | YZN `}
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
+        <LogoDevIcon />
+        <Typography variant="body1">Develop it with ❤️ by yzn</Typography>
       </Box>
     </div>
   );
